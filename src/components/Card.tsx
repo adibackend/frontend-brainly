@@ -10,47 +10,47 @@ import { ShareIcon } from "../icons/ShareIcon"
 interface cardProps {
    title: string,
    link: string,
-   description: string,
-   content: string,
-
    type: "youtube" | "twitter"
 }
 export const Cardd = ({ title, link, type }: cardProps) => {
-   return <Card className="w-[350px] h-auto mx-auto pt-2">
-      <CardHeader className="flex-row justify-between">
-         <div className="flex space-x-4 items-center ">
-            <span>
-
+   return (
+      <Card className="w-[350px] h-[250px] mx-auto pt-2  overflow-y-auto">
+         <CardHeader className="flex-row justify-between px-4">
+            <div className="flex space-x-4 items-center">
                <ShareIcon />
-            </span>
-            <span>
-               <CardTitle className="">{title}</CardTitle>
-            </span>
-
-         </div>
-         <div className="flex space-x-4 items-center">
-
-            <span>
-
-               <ShareIcon />
-            </span>
-            <span>
-               <a href={link} target="_blank" >
-
+               <CardTitle className="truncate max-w-[250px]">{title}</CardTitle>
+            </div>
+            <div className="flex space-x-4 items-center">
+               <a href={link} target="_blank">
                   <ShareIcon />
                </a>
-            </span>
+            </div>
+         </CardHeader>
 
-         </div>
-         {/* <CardDescription>{description}</CardDescription> */}
-      </CardHeader>
-      <CardContent className="w-full">
-         {type == "twitter" ? <blockquote className="twitter-tweet "><a href={link.replace("x.com", "twitter.com")}></a></blockquote> : <iframe src={link.replace("?v=", "/").replace("watch", "embed")} className="w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+         <CardContent className="">
+            {type === "twitter" ? (
+               <div className=''>
 
-      </CardContent>
-      <CardFooter>
-         <p></p>
-      </CardFooter>
-   </Card>
+               <blockquote className="twitter-tweet ">
+                  <a href={link.replace("x.com", "twitter.com")}></a>
+               </blockquote>
+               </div>
+            ) : (
+               <iframe
+                  src={link.replace("?v=", "/").replace("watch", "embed")}
+                  width={275}
+                  height={350}
+                  className="w-full h-full rounded-lg"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+               ></iframe>
+            )}
+         </CardContent>
 
-}
+         <CardFooter className="px-4 py-2 text-sm text-gray-500">
+            <p>Shared Content</p>
+         </CardFooter>
+      </Card>
+   );
+};
