@@ -2,11 +2,15 @@ import { Dashboard } from "@/pages/Dashboard";
 import AuthForms from "./pages/AuthForms";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
+
 function App() {
+   
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/dashboard"  element={<Dashboard />} />
         <Route
           path="/signup"
           element={
