@@ -1,1 +1,1 @@
-export const BACKEND_URL="https://opulent-potato-wp47vqqjpj6h9xrp-3008.app.github.dev/"
+export const BACKEND_URL="https://symmetrical-invention-76x97jj4g7wfwp7g-3002.app.github.dev/"

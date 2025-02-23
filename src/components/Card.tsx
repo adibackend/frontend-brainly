@@ -1,6 +1,7 @@
 import {
    Card,
    CardContent,
+   CardDescription,
    CardFooter,
    CardHeader,
    CardTitle,
@@ -28,15 +29,13 @@ export const Cardd = ({ title, link, type }: cardProps) => {
 
          <CardContent className="">
             {type === "twitter" ? (
-               <div className='aspect-w-16 aspect-h-9'>
+               <div className=''>
 
                <blockquote className="twitter-tweet ">
                   <a href={link.replace("x.com", "twitter.com")}></a>
                </blockquote>
                </div>
             ) : (
-               <div className="">
-
                <iframe
                   src={link.replace("?v=", "/").replace("watch", "embed")}
                   width={275}
@@ -45,8 +44,7 @@ export const Cardd = ({ title, link, type }: cardProps) => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  ></iframe>
-                  </div>
+               ></iframe>
             )}
          </CardContent>
 

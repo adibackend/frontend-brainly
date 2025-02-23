@@ -1,4 +1,7 @@
 
+import { Youtube } from "@/icons/Youtube"
+import {Twitter} from "@/icons/Twitter"
+import { Notes } from "@/icons/Notes"
 import {
   Sidebar,
   SidebarContent,
@@ -9,34 +12,28 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar"
-import { Youtube } from "@/icons/Youtube"
-import { Twitter } from "@/icons/Twitter"
-import { Notes } from "@/icons/Notes"
 
-
+// Menu items.
 const items = [
   {
-    title: "Notes",
-    url: "#",
-    icon: Notes,
+    title:"Notes",
+    url:"#",
+    icon:Notes,
 
   },
   {
-    title: "Twitter",
+    title: "twitter",
     url: "#",
     icon: Twitter,
-
   },
   {
-    title: "Youtube",
+    title: "youtube",
     url: "#",
     icon: Youtube,
-
   },
 ]
 
-export function AppSidebar({ setEg }: { setEg: (tab: string) => void }) {
-
+export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
@@ -44,17 +41,16 @@ export function AppSidebar({ setEg }: { setEg: (tab: string) => void }) {
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu >
-              {items.map((item) => {
-                
-                return    <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
-                  <a href={item.url}>
-                    <item.icon />
-                    <button onClick={()=>{ setEg(item.title.toLowerCase()); console.log(item.title);  }} >{item.title}</button>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              })}
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

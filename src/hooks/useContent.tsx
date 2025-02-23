@@ -11,15 +11,16 @@ export const useContent = () => {
             }
         }).then((r) => {
             setContent(r.data.content)
-           
+            console.log(r)
         }).then(() => console.log()).catch((e) => console.log('use content eroor' + e))
     }
     useEffect(() => {
         refresh()
        let interval= setInterval(() => {
             refresh()
+            console.log(content)
 
-        }, 1 * 1000)
+        }, 2 * 1000)
         return ()=>{clearInterval(interval)}
     }, [])
     return content
